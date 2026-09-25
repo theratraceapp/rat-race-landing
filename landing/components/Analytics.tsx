@@ -81,6 +81,53 @@ export function Analytics() {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
+  // Tally's embedded waitlist form announces submissions via postMessage
+  // ({ event: "Tally.FormSubmitted" }) — clicks inside the iframe never reach
+  // the document, so this is how waitlist_submit gets tracked.
+  // The "ratrace:waitlist-submit" CustomEvent is the documented contract
+  // (see landing/ANALYTICS-HOOKS.md) for any future non-iframe signup.
+  useEffect(() => {
+    const trackSubmit = (props: Record<string, unknown>) => {
+      try {
+        window.umami?.track("waitlist_submit", props);
+      } catch {
+        /* analytics must never break the page */
+      }
+    };
+
+    const onMessage = (e: MessageEvent) => {
+      let data: unknown = e.data;
+      if (typeof data === "string") {
+        if (!data.includes("Tally.FormSubmitted")) return;
+        try {
+          data = JSON.parse(data);
+        } catch {
+          return;
+        }
+      }
+      if (
+        typeof data === "object" &&
+        data !== null &&
+        (data as { event?: unknown }).event === "Tally.FormSubmitted"
+      ) {
+        trackSubmit({ placement: "hero" });
+      }
+    };
+
+    const onCustomSubmit = (e: Event) => {
+      const detail =
+        (e as CustomEvent<Record<string, unknown>>).detail ?? {};
+      trackSubmit({ placement: "hero", ...detail });
+    };
+
+    window.addEventListener("message", onMessage);
+    window.addEventListener("ratrace:waitlist-submit", onCustomSubmit);
+    return () => {
+      window.removeEventListener("message", onMessage);
+      window.removeEventListener("ratrace:waitlist-submit", onCustomSubmit);
+    };
+  }, []);
+
   // No website ID configured (or ad-blocked) → render nothing, page still works.
   if (!websiteId) return null;
 

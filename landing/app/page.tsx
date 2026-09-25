@@ -14,7 +14,7 @@ import WaitlistCapture from "../components/WaitlistCapture";
  * The button carries data-analytics="survey-start" — keep it on the final URL.
  */
 const SURVEY_URL =
-  "https://tally.so/r/REPLACE-WITH-SURVEY-FORM-ID?utm_source=ratrace-landing&utm_medium=cta&utm_campaign=survey-v1";
+  "https://tally.so/r/lbQYao?utm_source=ratrace-landing&utm_medium=cta&utm_campaign=survey-v1";
 
 /* ---------------------------------- nav ---------------------------------- */
 
