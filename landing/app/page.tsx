@@ -1,5 +1,7 @@
 import Logo from "../components/Logo";
 import WaitlistCapture from "../components/WaitlistCapture";
+import Trajectory from "../components/Trajectory";
+import { Reveal, ScrollChrome } from "../components/Reveal";
 
 /*
  * Survey CTA (added to support the validation survey in forms/survey-tally.md).
@@ -46,6 +48,7 @@ function Hero() {
           goals, enter one rough number, and watch your projected dates move
           closer as you climb.
         </p>
+        <Trajectory />
         <WaitlistCapture />
       </div>
     </section>
@@ -59,11 +62,14 @@ function Problem() {
     <section className="block" aria-labelledby="problem-heading">
       <div className="container">
         <p className="kicker">The problem</p>
-        <blockquote className="problem-quote" id="problem-heading">
-          &ldquo;A number without a trajectory is trivia; a number with a date
-          is a <span className="gold-word">plan</span>.&rdquo;
-        </blockquote>
-        <div className="problem-body">
+        <Reveal>
+          <blockquote className="problem-quote" id="problem-heading">
+            &ldquo;A number without a trajectory is trivia; a number with a date
+            is a <span className="gold-word">plan</span>.&rdquo;
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <div className="problem-body">
           <p>
             Most wealth tools show you a number and stop there. A balance is a
             snapshot — it tells you where you stand, not where you&rsquo;re
@@ -74,7 +80,8 @@ function Problem() {
             progress, and the dates your goals actually land. Trivia becomes a
             plan. A plan becomes a race you can win.
           </p>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -104,6 +111,7 @@ function HowItWorks() {
   return (
     <section className="block" aria-labelledby="how-heading">
       <div className="container">
+        <Reveal>
         <div className="section-head">
           <p className="kicker">How it works</p>
           <h2 id="how-heading">
@@ -114,15 +122,18 @@ function HowItWorks() {
             your race in under a minute.
           </p>
         </div>
+        </Reveal>
         <div className="grid grid-3">
-          {STEPS.map((s) => (
-            <article className="card" key={s.n}>
-              <span className="step-num" aria-hidden="true">
-                {s.n}
-              </span>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </article>
+          {STEPS.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.1}>
+              <article className="card">
+                <span className="step-num" aria-hidden="true">
+                  {s.n}
+                </span>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -167,6 +178,7 @@ function Leagues() {
   return (
     <section className="block" aria-labelledby="leagues-heading">
       <div className="container">
+        <Reveal>
         <div className="section-head">
           <p className="kicker">The leagues</p>
           <h2 id="leagues-heading">
@@ -177,18 +189,20 @@ function Leagues() {
             against your own goals, never against anyone else&rsquo;s balance.
           </p>
         </div>
+        </Reveal>
         <div className="grid grid-4">
-          {LEAGUES.map((l) => (
-            <article
-              className="card league-card"
-              key={l.name}
-              style={{ ["--accent" as string]: l.accent }}
-            >
-              <p className="league-range">{l.range}</p>
-              <h3>{l.name}</h3>
-              <p>{l.body}</p>
-              <p className="flavor">{l.flavor}</p>
-            </article>
+          {LEAGUES.map((l, i) => (
+            <Reveal key={l.name} delay={i * 0.1}>
+              <article
+                className="card league-card"
+                style={{ ["--accent" as string]: l.accent }}
+              >
+                <p className="league-range">{l.range}</p>
+                <h3>{l.name}</h3>
+                <p>{l.body}</p>
+                <p className="flavor">{l.flavor}</p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -222,6 +236,7 @@ function AloneTogether() {
     <section className="block" aria-labelledby="together-heading">
       <div className="container">
         <div className="split">
+          <Reveal>
           <div>
             <p className="kicker">Alone, together</p>
             <h2 id="together-heading">
@@ -233,6 +248,8 @@ function AloneTogether() {
               allergic to bragging.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={0.12}>
           <ul className="feature-list">
             {TOGETHER_POINTS.map((p) => (
               <li key={p.title}>
@@ -246,6 +263,7 @@ function AloneTogether() {
               </li>
             ))}
           </ul>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -274,10 +292,17 @@ function BuildingInPublic() {
     <section className="block honesty" aria-labelledby="honesty-heading">
       <div className="container">
         <div className="honesty-inner">
-          <p className="kicker">Building in public</p>
-          <h2 id="honesty-heading">
-            No hype. <span className="gold-word">Just the build.</span>
-          </h2>
+          <Reveal>
+            <p className="live-pill">
+              <span className="live-dot" aria-hidden="true" />
+              Live — validating now
+            </p>
+            <p className="kicker">Building in public</p>
+            <h2 id="honesty-heading">
+              No hype. <span className="gold-word">Just the build.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
           <p>
             We&rsquo;d rather earn your trust than manufacture it. Here&rsquo;s
             exactly where things stand:
@@ -294,6 +319,29 @@ function BuildingInPublic() {
               </li>
             ))}
           </ul>
+          </Reveal>
+          <Reveal delay={0.16}>
+          <ol className="timeline">
+            <li>
+              <time dateTime="2026-09-24">Sep 24, 2026</time>
+              The thesis lands: brand, leagues, and the trajectory-first idea
+              take shape.
+            </li>
+            <li>
+              <time dateTime="2026-09-25">Sep 25, 2026</time>
+              theratrace.app goes live. The waitlist opens.
+            </li>
+            <li className="is-now">
+              <time>Now</time>
+              Validating. Every waitlist signup is a vote for the race.
+            </li>
+            <li className="is-next">
+              <time>Next</time>
+              League explainer, trajectory teaser video, and the first
+              build-in-public drops.
+            </li>
+          </ol>
+          </Reveal>
           <div className="honesty-ctas">
             <a href="#waitlist" className="btn btn-gold">
               Follow the build — join the waitlist
@@ -349,6 +397,7 @@ function Faq() {
   return (
     <section className="block" aria-labelledby="faq-heading">
       <div className="container">
+        <Reveal>
         <div className="section-head" style={{ marginInline: "auto", textAlign: "center" }}>
           <p className="kicker">FAQ</p>
           <h2 id="faq-heading">
@@ -358,6 +407,7 @@ function Faq() {
             No marketing fog. Where we don&rsquo;t know yet, we say so.
           </p>
         </div>
+        </Reveal>
         <div className="faq-list">
           {FAQS.map((f) => (
             <details className="faq-item" key={f.q}>
@@ -493,6 +543,7 @@ function Footer() {
 export default function Page() {
   return (
     <>
+      <ScrollChrome />
       <Nav />
       <main>
         <Hero />

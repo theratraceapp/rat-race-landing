@@ -755,3 +755,276 @@ section.block {
     transform: none;
   }
 }
+
+/* ============================================================
+   Motion layer — teaser-grade dynamism, restrained and premium.
+   All entrance motion respects prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- hero entrance ---------- */
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero .pitch { animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.hero h1 { animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both; }
+.hero .lead { animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both; }
+.hero .trajectory { animation: rise-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both; }
+.hero .waitlist { animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
+
+/* ---------- trajectory teaser ---------- */
+
+.trajectory {
+  margin: 44px auto 0;
+  max-width: 720px;
+}
+
+.trajectory svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.traj-grid {
+  stroke: rgba(244, 241, 232, 0.06);
+  stroke-width: 1;
+}
+
+.traj-tick {
+  opacity: 0;
+  animation: tick-in 0.8s ease forwards;
+}
+
+@keyframes tick-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.traj-tick-line {
+  stroke: rgba(201, 161, 92, 0.35);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.traj-tick-label {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.traj-line {
+  stroke: var(--gold);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 1100;
+  animation: draw-line 2.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+  filter: drop-shadow(0 0 10px rgba(201, 161, 92, 0.35));
+}
+
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+
+.traj-dot {
+  fill: var(--gold-bright);
+  opacity: 0;
+  animation: dot-in 0.6s ease 2.4s forwards;
+  filter: drop-shadow(0 0 8px rgba(229, 200, 126, 0.9));
+}
+
+.traj-halo {
+  fill: none;
+  stroke: rgba(229, 200, 126, 0.4);
+  stroke-width: 1.5;
+  opacity: 0;
+  animation: dot-in 0.6s ease 2.4s forwards;
+}
+
+@keyframes dot-in {
+  to { opacity: 1; }
+}
+
+.traj-end-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: tick-in 0.8s ease forwards;
+}
+
+.traj-start { fill: var(--muted); animation-delay: 0.9s; }
+.traj-future { fill: var(--gold-bright); animation-delay: 2.8s; font-weight: 600; }
+
+.traj-caption {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.traj-caption span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ---------- scroll reveals ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- nav intensifies on scroll ---------- */
+
+.is-scrolled .nav {
+  background: rgba(10, 10, 11, 0.94);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- league cards: accent glow on hover ---------- */
+
+.league-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.league-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 32px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+/* ---------- building-in-public: live pill + timeline ---------- */
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  border: 1px solid rgba(201, 161, 92, 0.4);
+  background: var(--gold-wash);
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 0 0 rgba(229, 200, 126, 0.6);
+  animation: pulse-dot 2.2s ease-out infinite;
+}
+
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(229, 200, 126, 0.55); }
+  70% { box-shadow: 0 0 0 12px rgba(229, 200, 126, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 200, 126, 0); }
+}
+
+.timeline {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(201, 161, 92, 0.5), rgba(201, 161, 92, 0.08));
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 22px 32px;
+  font-size: 0.98rem;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid rgba(201, 161, 92, 0.6);
+}
+
+.timeline li.is-now::before {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 12px rgba(229, 200, 126, 0.8);
+  animation: pulse-dot 2.2s ease-out infinite;
+}
+
+.timeline li.is-next {
+  color: var(--muted);
+}
+
+.timeline time {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+.timeline li.is-next time {
+  color: var(--muted);
+}
+
+/* ---------- reduced motion: everything settles instantly ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .pitch, .hero h1, .hero .lead, .hero .trajectory, .hero .waitlist {
+    animation: none;
+  }
+  .traj-line {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .traj-tick, .traj-dot, .traj-halo, .traj-end-label {
+    animation: none;
+    opacity: 1;
+  }
+  .traj-dot, .traj-halo { display: none; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .live-dot, .timeline li.is-now::before {
+    animation: none;
+  }
+}
