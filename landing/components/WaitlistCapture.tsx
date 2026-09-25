@@ -62,8 +62,8 @@ export default function WaitlistCapture({ id = "waitlist" }: { id?: string }) {
         width="100%"
         height={690}
         frameBorder="0"
-        marginHeight="0"
-        marginWidth="0"
+        marginHeight={0}
+        marginWidth={0}
         title="Rat Race — Waitlist"
         style={{ display: "block", width: "100%", border: 0 }}
       />
