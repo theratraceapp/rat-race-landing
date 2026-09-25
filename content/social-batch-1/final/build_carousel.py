@@ -273,9 +273,9 @@ def slide7():
     y += bh + 30
     f_meta = F(IN500, 30)
     center(d, cx, y + 17, "link in bio \u00b7 theratrace.app", f_meta, MUTED)
-    # lockup at bottom
-    lock = Image.open(os.path.join(VIS, "logo-reveal.webp")).convert("RGB").crop((340, 740, 1300, 1120))
-    lw = 500
+    # lockup at bottom (wordmark + tagline, rows 586-830 / tagline below)
+    lock = Image.open(os.path.join(VIS, "logo-reveal.webp")).convert("RGB").crop((440, 556, 1480, 906))
+    lw = 520
     lh = int(lw * lock.size[1] / lock.size[0])
     lock = lock.resize((lw, lh), Image.LANCZOS)
     img.paste(lock, (int(cx - lw / 2), H - 110 - lh))
