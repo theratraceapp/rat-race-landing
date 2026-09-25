@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rat Race mark">
+  <title>Rat Race — geometric rat escaping a maze</title>
+  <!-- Maze: two nested broken squares, open at the top-right corner -->
+  <g fill="none" stroke="#F4F1E8" stroke-opacity="0.32" stroke-width="2.2" stroke-linecap="square">
+    <path d="M12 52 L12 12 L52 12"/>
+    <path d="M22 42 L22 22 L42 22"/>
+  </g>
+  <!-- Rat: faceted geometric form escaping through the broken corner -->
+  <g>
+    <!-- tail -->
+    <path d="M26 30 C20 35 16 41 14 49" fill="none" stroke="#C9A15C" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round"/>
+    <!-- body: diamond -->
+    <polygon points="36,20 46,30 36,40 26,30" fill="#C9A15C"/>
+    <!-- body facet -->
+    <line x1="36" y1="20" x2="36" y2="40" stroke="#0A0A0B" stroke-opacity="0.55" stroke-width="1.5"/>
+    <!-- head: single clean triangle overlapping the body, pointing out through the gap -->
+    <polygon points="42,25 58,17 47,34" fill="#E5C87E"/>
+  </g>
+</svg>
