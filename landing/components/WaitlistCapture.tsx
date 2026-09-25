@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { trackOnView, EVENTS } from "@/lib/analytics";
+
 /**
  * WaitlistCapture — the email capture block used in the hero (and
  * anywhere else the page needs it).
@@ -34,8 +37,12 @@
  */
 
 export default function WaitlistCapture({ id = "waitlist" }: { id?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    trackOnView(ref.current, EVENTS.WAITLIST_VIEW, { placement: "hero" });
+  }, []);
   return (
-    <div className="waitlist" id={id}>
+    <div className="waitlist" id={id} ref={ref}>
       {/*
         ================================================================
         <!-- RAT-RACE-WAITLIST-FORM -->
