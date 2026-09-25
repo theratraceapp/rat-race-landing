@@ -337,8 +337,8 @@ function BuildingInPublic() {
             </li>
             <li className="is-next">
               <time>Next</time>
-              League explainer, trajectory teaser video, and the first
-              build-in-public drops.
+              Weekly drops — short videos, league carousels, build-in-public
+              threads — then the week-4 verdict on whether the race is real.
             </li>
           </ol>
           </Reveal>
