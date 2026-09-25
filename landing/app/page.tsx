@@ -485,6 +485,21 @@ function Footer() {
           <div>
             <Logo />
             <p className="footer-tagline">A rat race you can win.</p>
+            <a
+              className="footer-badge"
+              href="https://tools.launchllama.co?utm_source=badge&utm_medium=referral"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics="launch-llama-badge"
+              aria-label="Featured on Launch Llama Tools"
+            >
+              <img
+                src="https://tools.launchllama.co/featured-badge.png?v=2"
+                alt="Featured on Launch Llama Tools"
+                width="200"
+                height="52"
+              />
+            </a>
           </div>
           <nav aria-label="Social media">
             <ul className="socials">
