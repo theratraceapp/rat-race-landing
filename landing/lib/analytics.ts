@@ -18,6 +18,8 @@ export type SocialNetwork = "x" | "instagram" | "tiktok" | "threads" | "youtube"
 export const EVENTS = {
   WAITLIST_VIEW: "waitlist_view",
   WAITLIST_SUBMIT: "waitlist_submit",
+  WELCOME_VIEW: "welcome_view",
+  REFERRAL_COPY: "referral_copy",
   SURVEY_START: "survey_start",
   SOCIAL_CLICK: "social_click",
 } as const;

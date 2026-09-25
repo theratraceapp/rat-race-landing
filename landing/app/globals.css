@@ -1028,3 +1028,120 @@ section.block {
     animation: none;
   }
 }
+
+/* ---------- waitlist microcopy (unscoped) ---------- */
+
+.microcopy {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.microcopy-dim {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+/* ------------------------------- /welcome ------------------------------- */
+
+.welcome {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 88px) 24px 96px;
+  flex: 1;
+  width: 100%;
+}
+
+.welcome-inner h2 {
+  margin-top: 56px;
+}
+
+.share-box {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 30px 0 8px;
+}
+
+.share-label {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.share-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.share-link {
+  flex: 1 1 240px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92rem;
+  color: var(--gold-bright);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.welcome-steps {
+  margin-top: 28px;
+}
+
+.tier-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.tier-card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.tier-card h3 {
+  margin-bottom: 0.3em;
+}
+
+.tier-card p:last-child {
+  margin-bottom: 0;
+}
+
+.tier-n {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201, 161, 92, 0.35);
+  background: var(--gold-wash);
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.honest-note {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hairline);
+  font-size: 0.9rem;
+}

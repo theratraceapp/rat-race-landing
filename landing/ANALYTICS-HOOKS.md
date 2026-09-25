@@ -57,6 +57,14 @@ window.addEventListener("ratrace:waitlist-submit", (e) => {
 });
 ```
 
+Live wiring (2026-09-25): the single producer is
+`components/WaitlistCapture.tsx` — it listens for Tally's postMessage
+(`Tally.FormSubmitted`), fires this event with
+`detail: { placement: "hero", referred: <bool> }` (`referred` = signup came
+through a `?ref=` invite link), then navigates to `/welcome`. The single
+listener lives in `components/Analytics.tsx` — do not add a second
+postMessage listener or signups will double-count.
+
 ## 3. Suggested event taxonomy (for the future analytics plan)
 
 - `waitlist-submit` — a signup was completed (primary conversion).
