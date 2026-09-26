@@ -579,7 +579,7 @@ function Footer() {
             <p className="footer-tagline">A rat race you can win.</p>
             <a
               className="footer-badge"
-              href="https://tools.launchllama.co?utm_source=badge&utm_medium=referral"
+              href="https://tools.launchllama.co/products/rat-race?utm_source=badge&utm_medium=referral"
               target="_blank"
               rel="noopener noreferrer"
               data-analytics="launch-llama-badge"
