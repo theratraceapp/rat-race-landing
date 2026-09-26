@@ -375,12 +375,28 @@ function BuildingInPublic() {
                 X · @theratraceapp
               </a>
               <a
+                href="https://instagram.com/theratraceapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="proof-instagram"
+              >
+                Instagram · @theratraceapp
+              </a>
+              <a
                 href="https://tiktok.com/@theratrace.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-analytics="proof-tiktok"
               >
                 TikTok · @theratrace.app
+              </a>
+              <a
+                href="https://threads.com/@theratraceapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="proof-threads"
+              >
+                Threads · @theratraceapp
               </a>
               <a
                 href="https://youtube.com/@theratraceapp"
