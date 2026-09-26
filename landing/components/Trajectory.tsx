@@ -1,7 +1,7 @@
 /*
- * Trajectory — the hero teaser visual.
- * An animated SVG: a gold trajectory curve that draws itself on load,
- * league milestone ticks, and a traveler dot riding the line.
+ * Trajectory — the hero teaser visual (also the HeroArt fallback).
+ * An animated SVG: an ultraviolet trajectory curve that draws itself on
+ * load, league milestone ticks, and a traveler dot riding the line.
  * Pure SVG + CSS (+ SMIL for the dot). Decorative but labeled for AT.
  */
 
@@ -53,7 +53,7 @@ export default function Trajectory() {
         </text>
       </svg>
       <figcaption className="traj-caption">
-        Your trajectory, drawn. <span>A number with a date is a plan.</span>
+        Your trajectory, drawn. <span>Watch your dates move closer as you climb.</span>
       </figcaption>
     </figure>
   );

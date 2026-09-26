@@ -46,14 +46,21 @@ function isTallySubmitted(data: unknown): boolean {
   );
 }
 
-export default function WaitlistCapture({ id = "waitlist" }: { id?: string }) {
+export default function WaitlistCapture({
+  id = "waitlist",
+  placement = "hero",
+}: {
+  id?: string;
+  placement?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const codeRef = useRef<string>("");
   const [invited, setInvited] = useState(false);
 
   useEffect(() => {
-    trackOnView(ref.current, EVENTS.WAITLIST_VIEW, { placement: "hero" });
+    trackOnView(ref.current, EVENTS.WAITLIST_VIEW, { placement });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Referral attribution — runs before the Tally widget hydrates the iframe.
@@ -80,7 +87,7 @@ export default function WaitlistCapture({ id = "waitlist" }: { id?: string }) {
       if (!isTallySubmitted(e.data)) return;
       window.dispatchEvent(
         new CustomEvent("ratrace:waitlist-submit", {
-          detail: { placement: "hero", referred: Boolean(inbound) },
+          detail: { placement, referred: Boolean(inbound) },
         }),
       );
       window.setTimeout(() => {

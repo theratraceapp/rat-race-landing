@@ -1,0 +1,43 @@
+/* Rat Race — Emberline · Ultraviolet design tokens (production)
+   Dark-first. Drop-in CSS. Phase 1 brand pack, locked 2026-09-26. */
+:root {
+  --rr-bg:            #0B0912;  /* near-black canvas, violet-tinted */
+  --rr-surface:       #151022;  /* cards */
+  --rr-surface-2:     #1E1730;  /* raised / inset */
+  --rr-text:          #F5F1FF;  /* primary text, ice white */
+  --rr-muted:         #9C92B8;  /* secondary text, muted violet-gray */
+  --rr-primary:       #9D5CFF;  /* UV electric — trajectory, progress, primary actions */
+  --rr-primary-ink:   #150A2E;  /* text/icons on primary */
+  --rr-primary-deep:  #3B1D7A;  /* depth, Pip's body shadow */
+  --rr-secondary:     #FF6E4A;  /* finish coral — MILESTONES ONLY */
+  --rr-positive:      #34D399;  /* mint — GAINS ONLY */
+  --rr-negative:      #FB7185;  /* rose — losses */
+  --rr-hairline:      #2A2340;  /* 1px dividers */
+  --rr-track:         #1E1832;  /* progress track */
+  --rr-radius:        1.25rem;  /* 20px — round and warm */
+  --rr-shadow:        0 12px 40px rgba(157, 92, 255, .28);
+  --rr-font-display:  "Baloo 2", "Nunito", sans-serif;
+  --rr-font-body:     "Nunito", sans-serif;
+  --rr-font-hand:     "Caveat", cursive;
+}
+
+[data-theme="light"] {
+  --rr-bg:            #F4F0FF;  /* violet-tinted paper */
+  --rr-surface:       #FFFFFF;
+  --rr-surface-2:     #ECE6FA;
+  --rr-text:          #17102B;
+  --rr-muted:         #6E6390;
+  --rr-primary:       #7A3FD1;  /* deepened UV for light-bg contrast */
+  --rr-primary-ink:   #FFFFFF;
+  --rr-primary-deep:  #3B1D7A;
+  --rr-secondary:     #E05A34;  /* deepened coral for light-bg contrast */
+  --rr-positive:      #0E9F6E;  /* deepened mint for light-bg contrast */
+  --rr-negative:      #E11D48;
+  --rr-hairline:      #DCD2F2;
+  --rr-track:         #E4DBF7;
+  --rr-radius:        1.25rem;
+  --rr-shadow:        0 12px 32px rgba(122, 63, 209, .18);
+  --rr-font-display:  "Baloo 2", "Nunito", sans-serif;
+  --rr-font-body:     "Nunito", sans-serif;
+  --rr-font-hand:     "Caveat", cursive;
+}

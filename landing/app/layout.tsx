@@ -1,22 +1,34 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Baloo_2, Nunito, Caveat } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
-const fraunces = Fraunces({
+/*
+ * Emberline · Ultraviolet type system (locked 2026-09-26):
+ * Baloo 2 = display, Nunito = body/UI, Caveat = handwritten annotations.
+ * Each `variable` exposes the family to the --rr-font-* contract in
+ * globals.css (e.g. --rr-font-display: var(--font-baloo), ...).
+ */
+
+const baloo = Baloo_2({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-fraunces",
-  // Variable weights cover optical sizing; 400–700 is plenty for display.
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  variable: "--font-baloo",
+  weight: ["500", "600", "700", "800"],
 });
 
-const inter = Inter({
+const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-nunito",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-caveat",
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,14 +39,21 @@ export const metadata: Metadata = {
   },
   description:
     "Rat Race is the MMO for money: a gamified wealth tracker that turns your net worth into a race you can actually win. Join the waitlist for early access.",
+  icons: {
+    icon: [
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/favicon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/brand/favicon-512.png", sizes: "512x512", type: "image/png" }],
+  },
   openGraph: {
     title: "Rat Race — A rat race you can win.",
     description: "The MMO for money. Turn your net worth into a race you can actually win.",
     url: "https://theratrace.app",
     siteName: "Rat Race",
     type: "website",
-    // TODO — copy ~/workspace/rat-race-v0/brand/logo/og-image.png into
-    // landing/public/ before deploying, so share cards render.
+    // Regenerated from the Ultraviolet mark (2026-09-26). Lives at
+    // public/og-image.png so this absolute path resolves.
     images: [
       {
         url: "/og-image.png",
@@ -56,7 +75,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      data-rr-brand="ultraviolet"
+      className={`${baloo.variable} ${nunito.variable} ${caveat.variable}`}
+    >
       <body>
         {children}
         <Analytics />

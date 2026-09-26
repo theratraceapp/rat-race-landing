@@ -105,7 +105,7 @@ export default function WelcomeClient() {
       <main className="container welcome-inner">
         <p className="kicker">You&rsquo;re in the queue</p>
         <h1>
-          You&rsquo;re on <span className="gold-word">the list.</span>
+          You&rsquo;re on <span className="accent-word">the list.</span>
         </h1>
         <p className="lead">
           Now the fun part: every friend who joins through your link moves
@@ -119,7 +119,7 @@ export default function WelcomeClient() {
               <code className="share-link">{link}</code>
               <button
                 type="button"
-                className="btn btn-gold btn-sm"
+                className="btn btn-primary btn-sm"
                 onClick={copy}
               >
                 {copied ? "Copied ✓" : "Copy link"}
@@ -150,7 +150,7 @@ export default function WelcomeClient() {
         </div>
 
         <h2>
-          What referrals <span className="gold-word">unlock</span>
+          What referrals <span className="accent-word">unlock</span>
         </h2>
         <ul className="tier-list">
           {TIERS.map((t) => (

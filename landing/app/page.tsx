@@ -1,6 +1,9 @@
+import Image from "next/image";
 import Logo from "../components/Logo";
 import WaitlistCapture from "../components/WaitlistCapture";
-import Trajectory from "../components/Trajectory";
+import HeroArt from "../components/HeroArt";
+import Showcase from "../components/Showcase";
+import AppGlimpse from "../components/AppGlimpse";
 import { Reveal, ScrollChrome } from "../components/Reveal";
 
 /*
@@ -25,7 +28,7 @@ function Nav() {
     <header className="nav">
       <nav className="nav-inner" aria-label="Primary">
         <Logo />
-        <a href="#waitlist" className="btn btn-gold btn-sm">
+        <a href="#waitlist" className="btn btn-primary btn-sm">
           Join the waitlist
         </a>
       </nav>
@@ -41,14 +44,14 @@ function Hero() {
       <div className="container">
         <p className="pitch">The MMO for money</p>
         <h1 id="hero-heading">
-          A rat race <span className="gold-word">you can win.</span>
+          A rat race <span className="accent-word">you can win.</span>
         </h1>
         <p className="lead">
-          Rat Race turns your net worth into a game worth playing — pick your
-          goals, enter one rough number, and watch your projected dates move
-          closer as you climb.
+          Rat Race turns your net worth into a game worth playing — pick 1–3
+          goals, enter one rough number, and get a projected date for each.
+          Then watch the dates move closer as you climb.
         </p>
-        <Trajectory />
+        <HeroArt />
         <WaitlistCapture />
       </div>
     </section>
@@ -65,7 +68,7 @@ function Problem() {
         <Reveal>
           <blockquote className="problem-quote" id="problem-heading">
             &ldquo;A number without a trajectory is trivia; a number with a date
-            is a <span className="gold-word">plan</span>.&rdquo;
+            is a <span className="accent-word">plan</span>.&rdquo;
           </blockquote>
         </Reveal>
         <Reveal delay={0.12}>
@@ -115,7 +118,7 @@ function HowItWorks() {
         <div className="section-head">
           <p className="kicker">How it works</p>
           <h2 id="how-heading">
-            Racing in <span className="gold-word">three steps</span>
+            Racing in <span className="accent-word">three steps</span>
           </h2>
           <p>
             No setup marathons. No financial degree required. You&rsquo;ll see
@@ -143,32 +146,34 @@ function HowItWorks() {
 
 /* --------------------------------- leagues --------------------------------- */
 
+/* League accents — ultraviolet tints, rising in lightness as the race climbs. */
+
 const LEAGUES = [
   {
     name: "The Climb",
     range: "$0 – $1M",
-    accent: "#B08D57",
+    accent: "#9D5CFF",
     body: "Building the foundation. Every dollar saved is experience points toward your first million.",
     flavor: "“Everyone starts here. Winners keep going.”",
   },
   {
     name: "The Freedom",
     range: "$1M – $10M",
-    accent: "#C9A15C",
+    accent: "#B585FF",
     body: "Work becomes optional. Your money starts pulling its own weight — and then some.",
     flavor: "“The grind becomes a choice.”",
   },
   {
     name: "The Empire",
     range: "$10M – $100M",
-    accent: "#E5C87E",
+    accent: "#D3B8FF",
     body: "Capital becomes a team. Businesses, portfolios, and assets working while you sleep.",
     flavor: "“Play at a bigger table.”",
   },
   {
     name: "The Dynasty",
     range: "$100M+",
-    accent: "#EDE6D6",
+    accent: "#F5F1FF",
     body: "Wealth that outlives you. The long game: legacy, philanthropy, and the next hundred years.",
     flavor: "“Win the race for generations.”",
   },
@@ -182,7 +187,7 @@ function Leagues() {
         <div className="section-head">
           <p className="kicker">The leagues</p>
           <h2 id="leagues-heading">
-            Every wealth level, <span className="gold-word">one race</span>
+            Every wealth level, <span className="accent-word">one race</span>
           </h2>
           <p>
             Your league is set by your net worth — but the race is always
@@ -240,7 +245,7 @@ function AloneTogether() {
           <div>
             <p className="kicker">Alone, together</p>
             <h2 id="together-heading">
-              Your race. <span className="gold-word">Everyone&rsquo;s arena.</span>
+              Your race. <span className="accent-word">Everyone&rsquo;s arena.</span>
             </h2>
             <p>
               Money is personal. Rat Race is built for the way people actually
@@ -299,7 +304,7 @@ function BuildingInPublic() {
             </p>
             <p className="kicker">Building in public</p>
             <h2 id="honesty-heading">
-              No hype. <span className="gold-word">Just the build.</span>
+              No hype. <span className="accent-word">Just the build.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
@@ -320,6 +325,22 @@ function BuildingInPublic() {
             ))}
           </ul>
           </Reveal>
+          <Reveal delay={0.14}>
+            <figure className="empty-fig">
+              <Image
+                src="/brand/pip/pip-empty.png"
+                alt="Pip the rat waiting beside an empty leaderboard"
+                width={168}
+                height={168}
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>The leaderboard today: empty.</strong>
+                Honestly. No borrowed screenshots, no rented social proof —
+                just Pip, waiting for the first real racers.
+              </figcaption>
+            </figure>
+          </Reveal>
           <Reveal delay={0.16}>
           <ol className="timeline">
             <li>
@@ -338,12 +359,41 @@ function BuildingInPublic() {
             <li className="is-next">
               <time>Next</time>
               Weekly drops — short videos, league carousels, build-in-public
-              threads — then the week-4 verdict on whether the race is real.
+              threads — then a public verdict on whether the race is real.
             </li>
           </ol>
           </Reveal>
+          <Reveal delay={0.2}>
+            <p className="proof-label">The build happens in public — follow along:</p>
+            <div className="proof-links">
+              <a
+                href="https://x.com/theratraceapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="proof-x"
+              >
+                X · @theratraceapp
+              </a>
+              <a
+                href="https://tiktok.com/@theratrace.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="proof-tiktok"
+              >
+                TikTok · @theratrace.app
+              </a>
+              <a
+                href="https://youtube.com/@theratraceapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="proof-youtube"
+              >
+                YouTube · @theratraceapp
+              </a>
+            </div>
+          </Reveal>
           <div className="honesty-ctas">
-            <a href="#waitlist" className="btn btn-gold">
+            <a href="#waitlist" className="btn btn-primary">
               Follow the build — join the waitlist
             </a>
             {/* Renders only when SURVEY_URL is a real link — no dead links while the survey is unbuilt. */}
@@ -376,8 +426,20 @@ const FAQS = [
     a: "TBD. We're in the validation phase right now (V0): measuring interest before writing the app. Join the waitlist and you'll be first in line for early access when there's something to try.",
   },
   {
-    q: "Is my money data private?",
-    a: "Privacy is a core design principle: raw balances are never shown to other users — comparisons are always % toward personal goals, never dollar amounts. Full privacy and security details will be published before launch.",
+    q: "Is my data private — and safe?",
+    a: "Privacy is a core design principle: raw balances are never shown to other users — comparisons are always % toward personal goals, never dollar amounts. Your data stays yours; we will never sell it. Full privacy and security details will be published before launch.",
+  },
+  {
+    q: "Is this financial advice?",
+    a: "No. Rat Race is a tracker, not an advisor. It shows your trajectory and projected dates from numbers you enter — it won't tell you what to buy, sell, or do with your money.",
+  },
+  {
+    q: "Why join a waitlist for an app that doesn't exist yet?",
+    a: "Because the waitlist is the vote. We're measuring real interest before writing the app — joining gets you early access when there's something to try, and a direct say in what gets built first.",
+  },
+  {
+    q: "How is this different from my bank's dashboard?",
+    a: "Your bank shows a balance. Rat Race draws the line: your league, your progress, and the dates your goals land — wrapped in a game layer that makes the climb worth checking.",
   },
   {
     q: "How much will it cost?",
@@ -401,7 +463,7 @@ function Faq() {
         <div className="section-head" style={{ marginInline: "auto", textAlign: "center" }}>
           <p className="kicker">FAQ</p>
           <h2 id="faq-heading">
-            Honest <span className="gold-word">answers</span>
+            Honest <span className="accent-word">answers</span>
           </h2>
           <p>
             No marketing fog. Where we don&rsquo;t know yet, we say so.
@@ -418,6 +480,36 @@ function Faq() {
             </details>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* --------------------------------- final CTA --------------------------------- */
+
+function FinalCta() {
+  return (
+    <section className="block final-cta" aria-labelledby="final-cta-heading">
+      <div className="container">
+        <Reveal>
+          <Image
+            className="final-pip"
+            src="/brand/pip/pip-guide.png"
+            alt="Pip the rat, ready to guide you into the race"
+            width={256}
+            height={256}
+            loading="lazy"
+          />
+          <p className="kicker">Early access</p>
+          <h2 id="final-cta-heading">
+            The race is <span className="accent-word">forming.</span>
+          </h2>
+          <p>
+            Join the waitlist for early access — and a say in what gets built
+            first.
+          </p>
+        </Reveal>
+        <WaitlistCapture id="waitlist-final" placement="final" />
       </div>
     </section>
   );
@@ -560,14 +652,17 @@ export default function Page() {
     <>
       <ScrollChrome />
       <Nav />
-      <main>
+      <main className="motion-playful">
         <Hero />
         <Problem />
         <HowItWorks />
+        <Showcase />
+        <AppGlimpse />
         <Leagues />
         <AloneTogether />
         <BuildingInPublic />
         <Faq />
+        <FinalCta />
       </main>
       <Footer />
     </>

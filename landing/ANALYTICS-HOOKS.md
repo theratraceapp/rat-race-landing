@@ -70,7 +70,9 @@ postMessage listener or signups will double-count.
 - `waitlist-submit` — a signup was completed (primary conversion).
 - `survey-start` — the "Take the 3-minute survey" CTA was clicked (validation funnel; see `docs/analytics-plan.md` §6 for UTM conventions).
 - `social-x|instagram|tiktok|threads|youtube` — outbound social click.
-- (future) `waitlist-view` — the capture block scrolled into view.
+- `proof-x|proof-tiktok|proof-youtube` — "follow along" build-in-public links.
+- `glimpse_interact` — interaction inside the "See the app" vision-preview demo (`components/AppGlimpse.tsx`), with `data-analytics-placement` of `trajectory-marker` / `unlock-card` / `streak` / `badge`. No-op until Umami is configured.
+- (future) `waitlist-view` — the capture block scrolled into view (now carries `placement`: `hero` | `final`).
 - (future) `faq-open` — which FAQ item was expanded.
 
 ## 4. Notes

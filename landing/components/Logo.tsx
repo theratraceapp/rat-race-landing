@@ -6,10 +6,10 @@ import Image from "next/image";
 /**
  * Brand wordmark with graceful fallback.
  *
- * Logo files are expected at `public/brand/` (copied in from
- * `~/workspace/rat-race-v0/brand/logo/` by the person deploying).
- * If they are not present yet, this component renders a text wordmark
- * in Fraunces — the page builds and looks intentional either way.
+ * Logo files live at `public/brand/` (Emberline · Ultraviolet, locked
+ * 2026-09-26). If they are not present yet, this component renders a text
+ * wordmark in the display face — the page builds and looks intentional
+ * either way.
  *
  * To wire the real logo: place `logo.svg` (dark-mode artwork, ~40px tall)
  * at `landing/public/brand/logo.svg`.
