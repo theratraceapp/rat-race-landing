@@ -364,7 +364,7 @@ function BuildingInPublic() {
           </ol>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="proof-label">The build happens in public — follow along:</p>
+            <p className="proof-label">Building in public — follow the journey on:</p>
             <div className="proof-links">
               <a
                 href="https://x.com/theratraceapp"
