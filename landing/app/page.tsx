@@ -618,6 +618,15 @@ function Footer() {
                 />
               </a>
             </div>
+            <div className="fazier-badge">
+              <a href="https://fazier.com" target="_blank" rel="noopener noreferrer" title="Launched on Fazier">
+                <img
+                  src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark"
+                  alt="Launched on Fazier"
+                  width="120"
+                />
+              </a>
+            </div>
             <a
               className="footer-launch-link"
               href="https://www.tinylaunch.com/launch/23452-rat-race"
