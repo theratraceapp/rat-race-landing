@@ -759,6 +759,16 @@ section.block {
   height: auto;
 }
 
+.tinyshelf-badge {
+  margin-top: 14px;
+}
+
+.tinyshelf-badge img {
+  display: block;
+  width: 168px;
+  height: auto;
+}
+
 .socials {
   display: flex;
   gap: 12px;

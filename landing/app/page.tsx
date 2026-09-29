@@ -608,6 +608,16 @@ function Footer() {
                 height="52"
               />
             </a>
+            <div className="tinyshelf-badge">
+              <a href="https://www.tinyshelf.co" title="Featured on TinyShelf">
+                <img
+                  src="https://www.tinyshelf.co/badge/tinyshelf-badge-dark-f4d1216a.svg"
+                  alt="Featured on TinyShelf"
+                  width="216"
+                  height="64"
+                />
+              </a>
+            </div>
           </div>
           <nav aria-label="Social media">
             <ul className="socials">
