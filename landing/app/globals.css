@@ -769,6 +769,19 @@ section.block {
   height: auto;
 }
 
+.footer-launch-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: var(--rr-muted);
+  text-decoration: none;
+}
+
+.footer-launch-link:hover {
+  color: var(--rr-text);
+  text-decoration: underline;
+}
+
 .socials {
   display: flex;
   gap: 12px;

@@ -618,6 +618,15 @@ function Footer() {
                 />
               </a>
             </div>
+            <a
+              className="footer-launch-link"
+              href="https://www.tinylaunch.com/launch/23452-rat-race"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Rat Race on TinyLaunch — launching November 2, 2026"
+            >
+              🚀 Featured on TinyLaunch · Launching Nov 2
+            </a>
           </div>
           <nav aria-label="Social media">
             <ul className="socials">
