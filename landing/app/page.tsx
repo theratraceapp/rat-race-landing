@@ -608,23 +608,49 @@ function Footer() {
                 height="52"
               />
             </a>
-            <div className="tinyshelf-badge">
-              <a href="https://www.tinyshelf.co" title="Featured on TinyShelf">
+            <div className="badge-cluster" aria-label="Startup directory listings">
+              <div className="tinyshelf-badge">
+                <a href="https://www.tinyshelf.co" title="Featured on TinyShelf">
+                  <img
+                    src="https://www.tinyshelf.co/badge/tinyshelf-badge-dark-f4d1216a.svg"
+                    alt="Featured on TinyShelf"
+                    width="216"
+                    height="64"
+                  />
+                </a>
+              </div>
+              <div className="fazier-badge">
+                <a href="https://fazier.com" target="_blank" rel="noopener noreferrer" title="Launched on Fazier">
+                  <img
+                    src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark"
+                    alt="Launched on Fazier"
+                    width="120"
+                  />
+                </a>
+              </div>
+              <a
+                className="launchbuff-badge"
+                href="https://launchbuff.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Featured on LaunchBuff"
+              >
                 <img
-                  src="https://www.tinyshelf.co/badge/tinyshelf-badge-dark-f4d1216a.svg"
-                  alt="Featured on TinyShelf"
-                  width="216"
-                  height="64"
+                  src="https://launchbuff.com/badge-featured-dark.svg"
+                  alt="Featured on LaunchBuff"
+                  width="256"
+                  height="80"
+                  loading="lazy"
                 />
               </a>
-            </div>
-            <div className="fazier-badge">
-              <a href="https://fazier.com" target="_blank" rel="noopener noreferrer" title="Launched on Fazier">
-                <img
-                  src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark"
-                  alt="Launched on Fazier"
-                  width="120"
-                />
+              <a
+                className="startupfame-badge"
+                href="https://startupfa.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Featured on Startup Fame"
+              >
+                ★ Featured on Startup Fame
               </a>
             </div>
             <a

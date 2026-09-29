@@ -769,6 +769,48 @@ section.block {
   height: auto;
 }
 
+.badge-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.badge-cluster .tinyshelf-badge {
+  margin-top: 0;
+}
+
+.badge-cluster img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+.launchbuff-badge {
+  display: inline-block;
+}
+
+.startupfame-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: rgba(157, 92, 255, 0.08);
+  border: 1px solid var(--rr-hairline);
+  color: var(--rr-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.startupfame-badge:hover {
+  border-color: var(--rr-primary);
+}
+
 .footer-launch-link {
   display: inline-block;
   margin-top: 14px;
