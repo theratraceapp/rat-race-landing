@@ -145,7 +145,7 @@ export default function WaitlistCapture({
       <p className="microcopy" id={`${id}-hint`}>
         {invited
           ? "You were invited by a fellow racer. Welcome to the queue."
-          : "We\u2019re building in public \u2014 join the waitlist for early access."}
+          : "We\u2019re building in public. Join the waitlist for early access."}
       </p>
       <p className="microcopy microcopy-dim">
         Refer friends after you join to move up the launch queue.
