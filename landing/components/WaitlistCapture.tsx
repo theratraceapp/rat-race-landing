@@ -139,12 +139,12 @@ export default function WaitlistCapture({
         frameBorder="0"
         marginHeight={0}
         marginWidth={0}
-        title="Rat Race — Waitlist"
+        title="Rat Race · Waitlist"
         style={{ display: "block", width: "100%", border: 0 }}
       />
       <p className="microcopy" id={`${id}-hint`}>
         {invited
-          ? "You were invited by a fellow racer — welcome to the queue."
+          ? "You were invited by a fellow racer. Welcome to the queue."
           : "We\u2019re building in public \u2014 join the waitlist for early access."}
       </p>
       <p className="microcopy microcopy-dim">

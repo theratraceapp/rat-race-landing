@@ -34,7 +34,7 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://theratrace.app"),
   title: {
-    default: "Rat Race — A rat race you can win.",
+    default: "Rat Race · A rat race you can win.",
     template: "%s | Rat Race",
   },
   description:
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Rat Race — A rat race you can win.",
+    title: "Rat Race · A rat race you can win.",
     description: "The MMO for money. Turn your net worth into a race you can actually win.",
     url: "https://theratrace.app",
     siteName: "Rat Race",
@@ -65,13 +65,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Rat Race — a rat race you can win.",
+        alt: "Rat Race · a rat race you can win.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rat Race — A rat race you can win.",
+    title: "Rat Race · A rat race you can win.",
     description: "The MMO for money. Join the waitlist for early access.",
   },
   robots: { index: true, follow: true },

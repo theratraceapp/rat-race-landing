@@ -47,7 +47,7 @@ function Hero() {
           A rat race <span className="accent-word">you can win.</span>
         </h1>
         <p className="lead">
-          Rat Race turns your net worth into a game worth playing — pick 1–3
+          Rat Race turns your net worth into a game worth playing. Pick 1–3
           goals, enter one rough number, and get a projected date for each.
           Then watch the dates move closer as you climb.
         </p>
@@ -75,7 +75,7 @@ function Problem() {
           <div className="problem-body">
           <p>
             Most wealth tools show you a number and stop there. A balance is a
-            snapshot — it tells you where you stand, not where you&rsquo;re
+            snapshot. It tells you where you stand, not where you&rsquo;re
             headed or when you&rsquo;ll arrive.
           </p>
           <p>
@@ -96,7 +96,7 @@ const STEPS = [
   {
     n: "1",
     title: "Pick 1–3 unlocks",
-    body: "Choose the goals that matter to you — a paid-off home, a sabbatical, generational wealth. Your race, your finish lines.",
+    body: "Choose the goals that matter to you: a paid-off home, a sabbatical, generational wealth. Your race, your finish lines.",
   },
   {
     n: "2",
@@ -160,7 +160,7 @@ const LEAGUES = [
     name: "The Freedom",
     range: "$1M – $10M",
     accent: "#B585FF",
-    body: "Work becomes optional. Your money starts pulling its own weight — and then some.",
+    body: "Work becomes optional. Your money starts pulling its own weight, and then some.",
     flavor: "“The grind becomes a choice.”",
   },
   {
@@ -190,7 +190,7 @@ function Leagues() {
             Every wealth level, <span className="accent-word">one race</span>
           </h2>
           <p>
-            Your league is set by your net worth — but the race is always
+            Your league is set by your net worth. But the race is always
             against your own goals, never against anyone else&rsquo;s balance.
           </p>
         </div>
@@ -220,11 +220,11 @@ function Leagues() {
 const TOGETHER_POINTS = [
   {
     title: "Solo-first",
-    body: "Your home screen shows YOUR race — your league, your unlocks, your dates. Not a social feed.",
+    body: "Your home screen shows YOUR race: your league, your unlocks, your dates. Not a social feed.",
   },
   {
     title: "Ambient multiplayer",
-    body: "Built for atmosphere, not noise: a shared-arena feeling around your solo race — the sense that the climb is bigger than you, with none of the feed pressure.",
+    body: "Built for atmosphere, not noise. It feels like a shared arena around your solo race, with none of the feed pressure.",
   },
   {
     title: "Compare progress, never wealth",
@@ -232,7 +232,7 @@ const TOGETHER_POINTS = [
   },
   {
     title: "Lurker-friendly",
-    body: "No posting required, ever. Watch, track, and climb quietly — the race works just as well in the shadows.",
+    body: "No posting required, ever. Watch, track, and climb quietly. The race works just as well in the shadows.",
   },
 ] as const;
 
@@ -280,7 +280,7 @@ function AloneTogether() {
 const HONESTY_POINTS = [
   {
     title: "This is V0.",
-    body: "We're validating the idea — this page exists to find out if people want Rat Race before we build the app.",
+    body: "We're validating the idea. This page exists to find out if people want Rat Race before we build the app.",
   },
   {
     title: "No fake numbers.",
@@ -300,7 +300,7 @@ function BuildingInPublic() {
           <Reveal>
             <p className="live-pill">
               <span className="live-dot" aria-hidden="true" />
-              Live — validating now
+              Live · validating now
             </p>
             <p className="kicker">Building in public</p>
             <h2 id="honesty-heading">
@@ -316,7 +316,7 @@ function BuildingInPublic() {
             {HONESTY_POINTS.map((p) => (
               <li key={p.title}>
                 <span className="mark" aria-hidden="true">
-                  —
+                  ·
                 </span>
                 <span>
                   <strong>{p.title}</strong> {p.body}
@@ -336,8 +336,8 @@ function BuildingInPublic() {
               />
               <figcaption>
                 <strong>The leaderboard today: empty.</strong>
-                Honestly. No borrowed screenshots, no rented social proof —
-                just Pip, waiting for the first real racers.
+                Honestly. No borrowed screenshots, no rented social proof.
+                Just Pip, waiting for the first real racers.
               </figcaption>
             </figure>
           </Reveal>
@@ -358,13 +358,13 @@ function BuildingInPublic() {
             </li>
             <li className="is-next">
               <time>Next</time>
-              Weekly drops — short videos, league carousels, build-in-public
-              threads — then a public verdict on whether the race is real.
+              Weekly drops: short videos, league carousels, build-in-public
+              threads. Then a public verdict on whether the race is real.
             </li>
           </ol>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="proof-label">Building in public — follow the journey on:</p>
+            <p className="proof-label">Building in public. Follow the journey on:</p>
             <div className="proof-links">
               <a
                 href="https://x.com/theratraceapp"
@@ -410,7 +410,7 @@ function BuildingInPublic() {
           </Reveal>
           <div className="honesty-ctas">
             <a href="#waitlist" className="btn btn-primary">
-              Follow the build — join the waitlist
+              Join the waitlist
             </a>
             {/* Renders only when SURVEY_URL is a real link — no dead links while the survey is unbuilt. */}
             {!SURVEY_URL.includes("REPLACE-WITH") && (
@@ -435,39 +435,39 @@ function BuildingInPublic() {
 const FAQS = [
   {
     q: "What is Rat Race?",
-    a: "Rat Race is a gamified wealth tracker — “the MMO for money.” You set 1–3 financial goals (“unlocks”), enter a rough net-worth number, and Rat Race shows your league, your progress, and projected dates for each goal. The app itself is still being validated and built; this page is step one.",
+    a: "Rat Race is a gamified wealth tracker, “the MMO for money.” You set 1–3 financial goals (“unlocks”), enter a rough net-worth number, and Rat Race shows your league, your progress, and projected dates for each goal. The app itself is still being validated and built; this page is step one.",
   },
   {
     q: "When does it launch?",
     a: "TBD. We're in the validation phase right now (V0): measuring interest before writing the app. Join the waitlist and you'll be first in line for early access when there's something to try.",
   },
   {
-    q: "Is my data private — and safe?",
-    a: "Privacy is a core design principle: raw balances are never shown to other users — comparisons are always % toward personal goals, never dollar amounts. Your data stays yours; we will never sell it. Full privacy and security details will be published before launch.",
+    q: "Is my data private and safe?",
+    a: "Privacy is a core design principle. Raw balances are never shown to other users: comparisons are always % toward personal goals, never dollar amounts. Your data stays yours; we will never sell it. Full privacy and security details will be published before launch.",
   },
   {
     q: "Is this financial advice?",
-    a: "No. Rat Race is a tracker, not an advisor. It shows your trajectory and projected dates from numbers you enter — it won't tell you what to buy, sell, or do with your money.",
+    a: "No. Rat Race is a tracker, not an advisor. It shows your trajectory and projected dates from numbers you enter. It won't tell you what to buy, sell, or do with your money.",
   },
   {
     q: "Why join a waitlist for an app that doesn't exist yet?",
-    a: "Because the waitlist is the vote. We're measuring real interest before writing the app — joining gets you early access when there's something to try, and a direct say in what gets built first.",
+    a: "Because the waitlist is the vote. We're measuring real interest before writing the app. Joining gets you early access when there's something to try, and a direct say in what gets built first.",
   },
   {
     q: "How is this different from my bank's dashboard?",
-    a: "Your bank shows a balance. Rat Race draws the line: your league, your progress, and the dates your goals land — wrapped in a game layer that makes the climb worth checking.",
+    a: "Your bank shows a balance. Rat Race draws the line: your league, your progress, and the dates your goals land. A game layer makes the climb worth checking.",
   },
   {
     q: "How much will it cost?",
-    a: "Pricing is TBD. The direction we're committed to: manual tracking stays free. Anything paid would be for optional extras, decided with early users — not sprung on them.",
+    a: "Pricing is TBD. The direction we're committed to: manual tracking stays free. Anything paid would be for optional extras, decided with early users. Not sprung on them.",
   },
   {
     q: "Do I have to connect my bank accounts?",
-    a: "No. Manual entry will always be an option — one rough net-worth number is all you need to start. Whether we add optional account connections later is still TBD.",
+    a: "No. Manual entry will always be an option. One rough net-worth number is all you need to start. Whether we add optional account connections later is still TBD.",
   },
   {
     q: "Who is Rat Race for?",
-    a: "Any wealth level, from $0 to $100M and beyond. The leagues (Climb, Freedom, Empire, Dynasty) meet you where you are, and the race is always against your own goals — never against someone else's balance.",
+    a: "Any wealth level, from $0 to $100M and beyond. The leagues (Climb, Freedom, Empire, Dynasty) meet you where you are. The race is always against your own goals, never someone else's balance.",
   },
 ] as const;
 
@@ -521,7 +521,7 @@ function FinalCta() {
             The race is <span className="accent-word">forming.</span>
           </h2>
           <p>
-            Join the waitlist for early access — and a say in what gets built
+            Join the waitlist for early access, and a say in what gets built
             first.
           </p>
         </Reveal>
@@ -658,7 +658,7 @@ function Footer() {
               href="https://www.tinylaunch.com/launch/23452-rat-race"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Rat Race on TinyLaunch — launching November 2, 2026"
+              aria-label="Rat Race on TinyLaunch, launching November 2, 2026"
             >
               🚀 Featured on TinyLaunch · Launching Nov 2
             </a>

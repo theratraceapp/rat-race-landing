@@ -19,7 +19,7 @@ const STEPS = [
   {
     n: "1",
     title: "Copy your link",
-    body: "It's yours alone — every signup through it is credited to you.",
+    body: "It's yours alone. Every signup through it is credited to you.",
   },
   {
     n: "2",
@@ -37,7 +37,7 @@ const TIERS = [
   {
     n: "1 referral",
     title: "Jump the queue",
-    body: "Every referral moves you up — launch access goes out in waves, starting at the top.",
+    body: "Every referral moves you up. Launch access goes out in waves, starting at the top.",
   },
   {
     n: "3 referrals",
@@ -47,7 +47,7 @@ const TIERS = [
   {
     n: "5 referrals",
     title: "Founders Wall",
-    body: "Your name on the Founders Wall — plus a vote on what gets built first.",
+    body: "Your name on the Founders Wall, plus a vote on what gets built first.",
   },
   {
     n: "10 referrals",
@@ -165,8 +165,8 @@ export default function WelcomeClient() {
         </ul>
 
         <p className="honest-note">
-          Queue positions go out by email as launch approaches — counted from
-          real signups, never a fake live counter.
+          Queue positions go out by email as launch approaches, counted from
+          real signups. Never a fake live counter.
         </p>
       </main>
     </div>

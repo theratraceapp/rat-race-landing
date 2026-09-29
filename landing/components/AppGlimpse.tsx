@@ -27,7 +27,7 @@ const MARKERS = [
     id: "m1",
     name: "First $100K",
     date: "Jun 2028",
-    blurb: "The foundation unlock — momentum starts compounding here.",
+    blurb: "The foundation unlock. Momentum starts compounding here.",
     x: 43.6,
     y: 65.3,
     edge: false,
@@ -61,21 +61,21 @@ const UNLOCKS = [
     name: "First $100K",
     pct: 72,
     date: "Jun 2028",
-    pace: "At this pace — 14 months sooner with an extra $200/mo.",
+    pace: "At this pace: 14 months sooner with an extra $200/mo.",
   },
   {
     id: "u2",
     name: "Debt-Free",
     pct: 34,
     date: "Mar 2030",
-    pace: "At this pace — the last stretch is the slowest, and it still counts.",
+    pace: "At this pace, the last stretch is the slowest. And it still counts.",
   },
   {
     id: "u3",
     name: "Work Optional",
     pct: 12,
     date: "Jun 2032",
-    pace: "At this pace — this is the date the whole race is drawn toward.",
+    pace: "At this pace, this is the date the whole race is drawn toward.",
     pip: true,
   },
 ] as const;
@@ -94,24 +94,24 @@ const WEEKS = [true, true, true, true, true, true, true, false] as const;
 const STREAK_LINES = [
   "12 weeks. The habit is the win.",
   "Tap in weekly to keep it alive.",
-  "Streaks beat motivation — every time.",
+  "Streaks beat motivation. Every time.",
 ] as const;
 
 const NOTES = [
   {
     n: "01",
     title: "The trajectory, drawn",
-    body: "One line with every goal on it. Hover or tap a marker to reveal its projected date — the whole app starts here.",
+    body: "One line with every goal on it. Hover or tap a marker to reveal its projected date. The whole app starts here.",
   },
   {
     n: "02",
     title: "Unlock cards",
-    body: "Milestones with dates, not balances. Each card carries its projected date and progress — tap one to see what could move it sooner.",
+    body: "Milestones with dates, not balances. Each card carries its projected date and progress. Tap one to see what could move it sooner.",
   },
   {
     n: "03",
     title: "Streaks & badges",
-    body: "The game layer. Weekly check-ins keep the streak alive; badges mark the moments worth celebrating. Go ahead — tap them.",
+    body: "The game layer. Weekly check-ins keep the streak alive; badges mark the moments worth celebrating. Go ahead, tap them.",
   },
 ] as const;
 
@@ -223,7 +223,7 @@ function TrajectoryDemo({
           }`}
           style={{ left: `${m.x}%`, top: `${m.y}%`, transitionDelay: `${0.9 + i * 0.18}s` }}
           data-tip={`${m.name} · ${m.date}`}
-          aria-label={`${m.name} — projected ${m.date}. Activate to pin details.`}
+          aria-label={`${m.name}, projected ${m.date}. Activate to pin details.`}
           aria-expanded={activeMarker === m.id}
           onClick={() => onMarker(activeMarker === m.id ? null : m.id)}
           onKeyDown={(e) => {
@@ -252,7 +252,7 @@ function TrajectoryDemo({
           ),
       )}
       <figcaption className="glimpse-chart-cap">
-        Example trajectory — hover or tap a marker
+        Example trajectory: hover or tap a marker
       </figcaption>
     </figure>
   );
@@ -268,7 +268,7 @@ function UnlockCards({
   onCard: (id: string | null) => void;
 }) {
   return (
-    <div className="glimpse-unlocks" role="list" aria-label="Unlock cards — example data">
+    <div className="glimpse-unlocks" role="list" aria-label="Unlock cards: example data">
       {UNLOCKS.map((u, i) => (
         <div role="listitem" key={u.id}>
           <button
@@ -366,7 +366,7 @@ function StreakAndBadges() {
         <span className="sr-only">7 of the last 8 weeks logged</span>
       </button>
 
-      <div className="glimpse-badges" role="list" aria-label="Achievements — 3 earned, 3 locked. Example data.">
+      <div className="glimpse-badges" role="list" aria-label="Achievements: 3 earned, 3 locked. Example data.">
         {BADGES.map((b) => (
           <div role="listitem" key={b.id}>
             <button
@@ -374,7 +374,7 @@ function StreakAndBadges() {
               className={`glimpse-badge${b.earned ? " is-earned" : " is-locked"}${
                 popped === b.id ? " is-popped" : ""
               }${nudged === b.id ? " is-nudged" : ""}`}
-              aria-label={b.earned ? `${b.name} — earned` : `${b.name} — locked`}
+              aria-label={b.earned ? `${b.name}, earned` : `${b.name}, locked`}
               onClick={() => {
                 if (b.earned) setPopped(b.id);
                 else setNudged(b.id);
@@ -392,7 +392,7 @@ function StreakAndBadges() {
               <span className="glimpse-badge-name">{b.name}</span>
               {nudged === b.id && !b.earned && (
                 <span className="glimpse-badge-hint">
-                  Locked — hit the milestone to earn it
+                  Locked. Hit the milestone to earn it
                 </span>
               )}
             </button>
@@ -423,9 +423,9 @@ export default function AppGlimpse() {
               A glimpse of the <span className="glimpse-accent">race to come.</span>
             </h2>
             <p>
-              An interactive sketch of the coming Rat Race app — the
+              An interactive sketch of the coming Rat Race app: the
               trajectory view, unlock cards, and streaks, running on example
-              data. Poke around: everything here responds.
+              data. Poke around. Everything here responds.
             </p>
           </div>
         </Reveal>
@@ -454,7 +454,7 @@ export default function AppGlimpse() {
               <UnlockCards openCard={openCard} onCard={setOpenCard} />
             </div>
             <p className="glimpse-fineprint">
-              Interactive sketch · example data — the app is still being built.
+              Interactive sketch · example data. The app is still being built.
             </p>
           </Reveal>
 

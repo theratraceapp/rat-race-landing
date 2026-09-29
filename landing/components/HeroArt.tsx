@@ -19,7 +19,7 @@ export default function HeroArt() {
     <figure className="hero-art">
       <Image
         src="/showcase/hero.png"
-        alt="Pip the rat racing along an ultraviolet trajectory toward a finish-line star — your money finally has a finish line"
+        alt="Pip the rat racing along an ultraviolet trajectory toward a finish-line star. Your money finally has a finish line."
         width={1600}
         height={900}
         priority

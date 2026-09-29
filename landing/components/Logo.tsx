@@ -23,7 +23,7 @@ export default function Logo() {
   }, []);
 
   return (
-    <a href="#top" className="wordmark" aria-label="Rat Race — back to top">
+    <a href="#top" className="wordmark" aria-label="Rat Race: back to top">
       {hasLogo ? (
         <Image
           src="/brand/logo.svg"

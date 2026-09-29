@@ -53,7 +53,7 @@ export default function Showcase() {
               <span className="accent-word">The idea isn&rsquo;t.</span>
             </h2>
             <p>
-              Concept art from the build — the trajectory view, and the card
+              Concept art from the build: the trajectory view, and the card
               that turns a goal into a date.
             </p>
           </div>
@@ -63,14 +63,14 @@ export default function Showcase() {
             <Art
               src="/showcase/before-after.png"
               alt="Concept art: a net-worth balance shown with and without its projected trajectory"
-              caption="Before / after — a balance becomes a plan."
+              caption="Before / after: a balance becomes a plan."
             />
           </Reveal>
           <Reveal delay={0.12}>
             <Art
               src="/showcase/unlock-card.png"
               alt="Concept art: an unlock card showing a goal, its progress, and its projected date"
-              caption="The unlock card — a goal with a date."
+              caption="The unlock card: a goal with a date."
             />
           </Reveal>
         </div>
