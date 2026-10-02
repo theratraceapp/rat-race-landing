@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Logo from "../../components/Logo";
 import { shareUrl } from "@/lib/referral";
-import { trackEvent, EVENTS } from "@/lib/analytics";
+import { trackEvent, EVENTS, trackPostHog, PH_EVENTS } from "@/lib/analytics";
 
 /**
  * /welcome — the post-signup share page (v1 referral layer, no backend).
@@ -66,10 +66,19 @@ export default function WelcomeClient() {
   const code = (params.get("code") || "").trim().slice(0, 32);
   const link = useMemo(() => (code ? shareUrl(code) : ""), [code]);
   const [copied, setCopied] = useState(false);
+  const [selectedUnlock, setSelectedUnlock] = useState<string | null>(null);
 
   useEffect(() => {
     trackEvent(EVENTS.WELCOME_VIEW, { has_code: Boolean(code) });
   }, [code]);
+
+  const selectUnlock = (title: string) => {
+    setSelectedUnlock(title);
+    trackPostHog(PH_EVENTS.UNLOCK_SELECTED, {
+      unlock_name: title,
+      source: "welcome_page",
+    });
+  };
 
   const copy = async () => {
     if (!link) return;
@@ -152,16 +161,32 @@ export default function WelcomeClient() {
         <h2>
           What referrals <span className="accent-word">unlock</span>
         </h2>
+        <p className="tier-hint">
+          Tap the unlock you&rsquo;re chasing — we&rsquo;ll remember it.
+        </p>
         <ul className="tier-list">
-          {TIERS.map((t) => (
-            <li className="card tier-card" key={t.title}>
-              <p className="tier-n">{t.n}</p>
-              <div>
-                <h3>{t.title}</h3>
-                <p>{t.body}</p>
-              </div>
-            </li>
-          ))}
+          {TIERS.map((t) => {
+            const selected = selectedUnlock === t.title;
+            return (
+              <li key={t.title}>
+                <button
+                  type="button"
+                  className={`card tier-card tier-select${selected ? " is-selected" : ""}`}
+                  aria-pressed={selected}
+                  onClick={() => selectUnlock(t.title)}
+                >
+                  <p className="tier-n">{t.n}</p>
+                  <div>
+                    <h3>{t.title}</h3>
+                    <p>{t.body}</p>
+                  </div>
+                  <span className="tier-check" aria-hidden="true">
+                    {selected ? "✓" : ""}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
         <p className="honest-note">

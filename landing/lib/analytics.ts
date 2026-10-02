@@ -56,6 +56,64 @@ export function trackEvent(
 export const trackWaitlistSubmit = (placement = "hero") =>
   trackEvent(EVENTS.WAITLIST_SUBMIT, { placement });
 
+/* ------------------------- PostHog product events ------------------------- */
+/**
+ * PostHog funnel events — exact names per the measurement plan.
+ * Fires via posthog-js when initialized (see instrumentation-client.ts);
+ * silently no-ops when the token is missing or the library failed to load.
+ * Never put PII (emails, names) in event names or properties.
+ */
+import posthog from "posthog-js";
+
+export const PH_EVENTS = {
+  WAITLIST_STARTED: "waitlist_started",
+  WAITLIST_JOINED: "waitlist_joined",
+  UNLOCK_SELECTED: "unlock_selected",
+  PROJECTION_VIEWED: "projection_viewed",
+} as const;
+
+/** True once posthog.init() has run with a token (client-side). */
+function posthogReady(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    const cfg = (posthog as unknown as { config?: { token?: string } }).config;
+    return Boolean(cfg?.token);
+  } catch {
+    return false;
+  }
+}
+
+/** Fire a PostHog product event. Safe anywhere client-side; no-ops otherwise. */
+export function trackPostHog(
+  name: string,
+  props?: Record<string, unknown>,
+): void {
+  if (!posthogReady()) {
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.debug("[posthog:skip]", name, props ?? {});
+    }
+    return;
+  }
+  try {
+    posthog.capture(name, props);
+  } catch {
+    /* analytics must never break the page */
+  }
+}
+
+/** Current page's UTM params as a flat object ({} when none). */
+export function currentUtmParams(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  const params = new URLSearchParams(window.location.search);
+  const out: Record<string, string> = {};
+  for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+    const v = params.get(key);
+    if (v) out[key] = v;
+  }
+  return out;
+}
+
 export const trackSurveyStart = (placement = "hero") =>
   trackEvent(EVENTS.SURVEY_START, { placement });
 

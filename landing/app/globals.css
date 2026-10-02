@@ -1417,6 +1417,53 @@ section.block {
   align-items: flex-start;
 }
 
+/* Selectable unlock tiers on /welcome — the button inherits the card look. */
+.tier-select {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tier-select:hover {
+  border-color: color-mix(in srgb, var(--rr-primary) 55%, transparent);
+}
+
+.tier-select.is-selected {
+  border-color: var(--rr-primary);
+  box-shadow: 0 0 0 1px var(--rr-primary), 0 8px 32px -12px var(--rr-primary);
+}
+
+.tier-check {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--rr-primary-bright);
+  border: 1px solid color-mix(in srgb, var(--rr-primary) 35%, transparent);
+  background: var(--rr-primary-wash);
+}
+
+.tier-select.is-selected .tier-check {
+  background: var(--rr-primary);
+  color: #fff;
+  border-color: var(--rr-primary);
+}
+
+.tier-hint {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
 .tier-card h3 {
   margin-bottom: 0.3em;
 }

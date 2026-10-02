@@ -705,10 +705,11 @@ function Footer() {
           <span>The MMO for money.</span>
         </div>
         <p className="footer-privacy">
-          Anonymous, cookieless analytics only: we measure page visits and
-          link clicks in aggregate (no cookies, no fingerprinting, no personal
-          data). Do-Not-Track is honored. Waitlist and survey details are
-          handled separately by our providers.
+          Analytics: we use PostHog to measure page visits, traffic sources,
+          and waitlist conversion in aggregate (no cookies for ads, no
+          fingerprinting, no personal data sold, ever). Do-Not-Track is
+          honored. Waitlist and survey details are handled separately by our
+          providers.
         </p>
       </div>
     </footer>

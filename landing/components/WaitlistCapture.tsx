@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { trackOnView, EVENTS } from "@/lib/analytics";
+import {
+  trackOnView,
+  EVENTS,
+  trackPostHog,
+  PH_EVENTS,
+  currentUtmParams,
+} from "@/lib/analytics";
 import { generateReferralCode } from "@/lib/referral";
 
 /**
@@ -63,6 +69,31 @@ export default function WaitlistCapture({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // waitlist_started — first real interaction with the form (click or focus
+  // inside the capture block), once per mount. This means the visitor began
+  // engaging, not just scrolled past.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let fired = false;
+    const onEngage = () => {
+      if (fired) return;
+      fired = true;
+      trackPostHog(PH_EVENTS.WAITLIST_STARTED, {
+        placement,
+        source: "landing_page",
+        ...currentUtmParams(),
+      });
+    };
+    el.addEventListener("pointerdown", onEngage);
+    el.addEventListener("focusin", onEngage);
+    return () => {
+      el.removeEventListener("pointerdown", onEngage);
+      el.removeEventListener("focusin", onEngage);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Referral attribution — runs before the Tally widget hydrates the iframe.
   useEffect(() => {
     if (!codeRef.current) codeRef.current = generateReferralCode();
@@ -85,15 +116,31 @@ export default function WaitlistCapture({
 
     const onMessage = (e: MessageEvent) => {
       if (!isTallySubmitted(e.data)) return;
+      // waitlist_joined — fires ONLY on Tally's confirmed successful
+      // submission (Tally.FormSubmitted), never on mere button clicks.
+      trackPostHog(PH_EVENTS.WAITLIST_JOINED, {
+        placement,
+        source: "landing_page",
+        referred: Boolean(inbound),
+        ...currentUtmParams(),
+      });
       window.dispatchEvent(
         new CustomEvent("ratrace:waitlist-submit", {
           detail: { placement, referred: Boolean(inbound) },
         }),
       );
       window.setTimeout(() => {
-        window.location.assign(
+        // Carry UTM params through to /welcome so attribution survives the
+        // redirect (PostHog also persists them in-session, this is belt and
+        // suspenders).
+        const dest = new URL(
           `/welcome?code=${encodeURIComponent(codeRef.current)}`,
+          window.location.origin,
         );
+        for (const [k, v] of new URLSearchParams(window.location.search)) {
+          if (k.startsWith("utm_")) dest.searchParams.set(k, v);
+        }
+        window.location.assign(dest.toString());
       }, 350);
     };
     window.addEventListener("message", onMessage);

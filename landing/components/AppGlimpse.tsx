@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { useInView } from "./glimpse/useInView";
+import { trackPostHog, PH_EVENTS } from "@/lib/analytics";
 
 /**
  * AppGlimpse — "See the app" vision-preview section.
@@ -409,6 +410,16 @@ export default function AppGlimpse() {
   const { ref, inView } = useInView<HTMLDivElement>(0.2);
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const projectionFired = useRef(false);
+
+  // projection_viewed — the visitor saw the projected-dates preview
+  // (the trajectory/unlock sketch) for the first time.
+  useEffect(() => {
+    if (inView && !projectionFired.current) {
+      projectionFired.current = true;
+      trackPostHog(PH_EVENTS.PROJECTION_VIEWED, { source: "landing_page" });
+    }
+  }, [inView]);
 
   return (
     <section className="block app-glimpse" aria-labelledby="glimpse-heading">
