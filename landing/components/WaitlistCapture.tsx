@@ -69,12 +69,16 @@ export default function WaitlistCapture({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // waitlist_started — first real interaction with the form (click or focus
-  // inside the capture block), once per mount. This means the visitor began
-  // engaging, not just scrolled past.
+  // waitlist_started — first real interaction with the form, once per mount.
+  // IMPORTANT: the Tally form renders inside an <iframe>, and mouse/keyboard
+  // events inside an iframe's document do NOT propagate to the parent page.
+  // So pointerdown/focusin on the container only catch clicks on the
+  // surrounding padding/microcopy — never clicks into the actual fields.
+  // The reliable signal for "visitor clicked into the form" is the parent
+  // window blurring with the iframe as document.activeElement.
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    const frame = iframeRef.current;
     let fired = false;
     const onEngage = () => {
       if (fired) return;
@@ -85,11 +89,19 @@ export default function WaitlistCapture({
         ...currentUtmParams(),
       });
     };
-    el.addEventListener("pointerdown", onEngage);
-    el.addEventListener("focusin", onEngage);
+    const onWindowBlur = () => {
+      // activeElement updates asynchronously after blur in some browsers.
+      window.setTimeout(() => {
+        if (document.activeElement === frame) onEngage();
+      }, 0);
+    };
+    el?.addEventListener("pointerdown", onEngage);
+    el?.addEventListener("focusin", onEngage);
+    window.addEventListener("blur", onWindowBlur);
     return () => {
-      el.removeEventListener("pointerdown", onEngage);
-      el.removeEventListener("focusin", onEngage);
+      el?.removeEventListener("pointerdown", onEngage);
+      el?.removeEventListener("focusin", onEngage);
+      window.removeEventListener("blur", onWindowBlur);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
