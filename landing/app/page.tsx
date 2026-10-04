@@ -645,7 +645,7 @@ function Footer() {
               </a>
               <a
                 className="startupfame-badge"
-                href="https://startupfa.me"
+                href="https://startupfa.me/s/rat-race"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Featured on Startup Fame"
