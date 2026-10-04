@@ -630,7 +630,7 @@ function Footer() {
               </div>
               <a
                 className="launchbuff-badge"
-                href="https://launchbuff.com"
+                href="https://launchbuff.com/products/rat-race-v3gt3o"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Featured on LaunchBuff"
